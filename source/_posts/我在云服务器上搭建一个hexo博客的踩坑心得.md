@@ -1,6 +1,7 @@
 ---
 title: 我在云服务器上搭建一个hexo博客的踩坑心得
 date: 2020-03-02 22:22:29
+catalog: true
 categories: tech
 tags: 
 - 环境配置
@@ -44,12 +45,11 @@ apt install nginx
                      # as directory, then fall back to displaying a 404.
                      try_files $uri $uri/ =404;
              }
-     
      ```
+   
 
-     
-
-   ![](../images/20-03-02/1.png)
+   
+![](../images/20-03-02/1.png)
 
 ### Git配置
 
@@ -102,15 +102,14 @@ apt install nginx
 3. 发布文章&推送到云服务器上
 
    - 常见的hexo命令
-
-     ```
-     hexo new "一片文章的名字"
-     hexo g # 根据文章生成网页内容
-     hexo s # 开启本地服务器,在本地预览
-     hexo d # 发布到我们在deploy中配置的服务器上
-     ```
-
-   - 使用```hexo d```命令发布文章到云服务器(别慌,你很可能会失败,失败原因见下一个版块)
+- 使用```hexo d```命令发布文章到云服务器(别慌,你很可能会失败,失败原因见下一个版块)
+   
+   ```
+   hexo new "一片文章的名字"
+   hexo g # 根据文章生成网页内容
+   hexo s # 开启本地服务器,在本地预览
+   hexo d # 发布到我们在deploy中配置的服务器上
+```
 
 ## 专属坑位
 
@@ -126,11 +125,9 @@ apt install nginx
 
  nginx默认用户是nobody,没有访问用户目录的权限,因此要修改nginx.conf文件中的第一行.
 
-**第一个root表示用户,第二个用户表示用户组别**
+```user root root;```**第一个root表示用户,第二个用户表示用户组别**
 
-```
-user root root;
-```
+
 
 
 
@@ -138,10 +135,7 @@ user root root;
 
 - [hexo+nginx搭建个人博客](https://zhuanlan.zhihu.com/p/68916423)
 - [利用云服务器搭建个人博客](https://www.jianshu.com/p/ad71f7a531a5)
-
 - [Nginx配置图片服务器](https://www.jianshu.com/p/c70b24c28ff3)
-
-
 
 ---
 
